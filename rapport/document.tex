@@ -1,0 +1,53 @@
+\documentclass[12pt,a4paper]{report}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{ifpdf}
+\usepackage[french]{babel}
+\ifpdf
+   % put here packages only for the PDF:
+   \DeclareGraphicsExtensions{.pdf,.png,.jpg,.mps}
+   \usepackage{hyperref} 
+\else
+   % put here packages only for the DVI:
+\fi
+
+\makeatletter
+\renewcommand{\@makechapterhead}[1]{%
+\vspace*{50 pt}%
+{\setlength{\parindent}{0pt} \raggedright \normalfont
+\bfseries\Huge\thechapter.\ #1
+\par\nobreak\vspace{40 pt}}}
+\makeatother
+ 
+% put all the other packages here:
+ 
+%\usepackage{mystyle}
+ 
+\begin{document}
+ 
+\input{./tex/title.tex}
+\maketitle
+\tableofcontents
+%\listoffigures
+%\listoftables
+\pagebreak
+ 
+\input{./tex/part1.tex}
+\input{./tex/part2.tex}
+\input{./tex/part3.tex}
+\input{./tex/part4.tex}
+\input{./tex/part5.tex}
+\input{./tex/part6.tex}
+\input{./tex/part7.tex}
+%\input{./tex/conclusions.tex}
+ 
+%\appendix
+%\input{./tex/appendix.tex}
+ 
+ 
+% Bibliography:
+\clearpage
+\addcontentsline{toc}{chapter}{Bibliographie}
+\input{./tex/bibliographie.tex}
+ 
+\end{document}
