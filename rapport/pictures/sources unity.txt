@@ -1,0 +1,52 @@
+SOURCES partie graphique:
+Site web unity3d-dev.com ( Cadinale Anthony )
+Tutoriels videos de la chaîne YouTube ToutApprendre
+Site officiel unity3d.com
+Tutoriel sur Unity du site djor-gri.com
+Cours de José Martins sur le développement de jeux vidéos
+
+INTRODUCTION :
+
+Simuler l’évolution d’une espèce grâce à l’implémentation d’un algorithme génétique appliqué à un réseau de neurones.
+De plus le réseau de neurones devra être générique afin de pouvoir être utilisé dans des domaines différents.
+Les individus (appelés créatures) doivent pour « survivre », boire de l’eau, éviter le feu et ramener des diamants à la maison. 
+Pour bouger, les créatures ont en entrée la possibilité de détecter si :
+-un diamant est devant soi
+-de l’eau est devant soi
+- du feu est devant soi
+-la maison est devant soi
+-transporte actuellement un diamant
+
+La créature à possibilité de :
+-tourner à gauche
+-tourner à droite
+-avancer
+
+
+
+
+
+Le choix des actions est déterminé par les poids associés à chaque réseau de neurones d’une créature.
+Pour l’évolution, un algorithme génétique permet de créer une nouvelle génération ( au bout d’un temps t) qui est une évolution positive de la génération précédente. Cet algorithme utilise le principe de sélection naturelle, reproduction d’individus et mutation génétique.
+ 
+Besoins fonctionnels :
+I .Interface graphique
+	1.Unity 
+
+Unity est un moteur 2D/3D pour développer des jeux vidéos.
+L’interface doit permettre de suivre l’évolution des créatures et d’avoir une « justification » visuelle du bon déroulement de l’évolution.
+Nous avons choisi unity car c’est un moyen efficace de représenter notre projet visuellement.Notre projet s’apparente à un jeu sans interactions avec l’utilisateur.
+
+Besoins non fonctionnels
+Nous avons choisi de développer notre application en C# afin de pouvoir faire tous les tests sous Unity.
+L’éditeur par défaut est MonoDevelop
+Unity étant un outil de déploiement cross-platform nous pouvons exécuter notre application sur tout type de support ( mobile ou fixe )
+
+
+
+
+
+
+Réalisation d’un algo genetique basé sur un reseau de neurones. Cet algo devra etre generique et pouvoir etre utilisé dans différents modeles tel que l’évolution d’une espece ou encore la bourse.
+Réseau de neurones : 
+	Mettre image representant un reseau de 
