@@ -12,7 +12,7 @@ Les individus (les créatures) doivent pour survivre, boire de l'eau, éviter le
  \item de l'eau est devant soi
  \item du feu est devant soi
  \item la maison est devant soi
- \item transporte actuellement un diamant\\
+ \item elle transporte actuellement un diamant\\
 \end{itemize}
 
 La créature à possibilité de :
@@ -30,9 +30,9 @@ Il utilisera aussi le réseau de neurones déjà implémenté.
 
 \section{Réseau de neurones}
 
-Dans le domain de la science cognitive et du "machine learning", les réseaux de neurones artificiels sont une famille d'algorithmes d'apprentissage statistique inspiré par les réseaux de neurones biologique (système nerveux central, cerveau) et sont utilisé pour estimer ou approximer une fonctions pouvant prendre un nombre important d'entrées généralement inconnues.\\
+Dans le domaine de la science cognitive et du "machine learning", les réseaux de neurones artificiels sont une famille d'algorithmes d'apprentissage statistique inspiré par les réseaux de neurones biologique (système nerveux central, cerveau) et sont utilisés pour estimer ou approximer une fonction pouvant prendre un nombre important d'entrées généralement inconnues.\\
 
-L'élément clé de ce paradigme réside dans la structure particulière du système de traitement de l'information. Il est habituellement composé d'un large nombre d'éléments de traitement interconnectés, neurones, travaillant à l’unisson afin de résoudre un problème spécifique. Un réseau de neurones apprend par l'exemple et est configuré pour une application spécifique telle que le "pattern recognition" ou la classification de données au travers d'un processus d’apprentissage. L'apprentissage dans un système nerveux biologique implique l'ajustement des connections synaptiques existantes entre les neurones, ce qui est vrai également dans un réseau artificiel.
+L'élément clé de ce paradigme réside dans la structure particulière du système de traitement de l'information. Il est habituellement composé d'un large nombre d'éléments de traitement interconnectés, neurones, travaillant à l’unisson afin de résoudre un problème spécifique. Un réseau de neurones apprend par l'exemple et est configuré pour une application spécifique telle que le "pattern recognition" ou la classification de données au travers d'un processus d’apprentissage. L'apprentissage dans un système nerveux biologique implique l'ajustement des connexions synaptiques existantes entre les neurones, ce qui est vrai également dans un réseau artificiel.
 
    
 \begin{figure}[H]
@@ -43,7 +43,7 @@ L'élément clé de ce paradigme réside dans la structure particulière du syst
 \end{figure}
 
 \subsection{Le Neurone Artificiel}
-Un neurone formel est une unité de traitement qui reçoit des données en entrée, sous la forme d’un vecteur, et produit une sortie réelle. Cette sortie est une fonction des entrées et des poids des connexions.\\
+Un neurone formel est une unité de traitement qui reçoit des données en entrée, sous la forme d’un vecteur, et produit une sortie réelle. Cette sortie est déterminée en fonction des entrées et des poids des connexions.\\
 Une connexion entre deux unités i et j indique la possibilité d'une relation physique entre ces deux unités.
 La valeur numérique du poids associé à une connexion entre deux unités reflète la force de la relation entre ces deux unités. Si cette valeur est positive, la connexion est dite excitatrice, sinon elle est dite inhibitrice. La convention usuelle est de noter le poids de la connexion reliant le neurone
 i au neurone j : $W_{ij}$
@@ -61,7 +61,7 @@ au moyen de connexions qui les relient.
 
 
 \section{Algorithme génétique}
-Les algorithmes génétiques sont des algorithmes s'inspirant de l'évolution des especes, leurs but est de trouver une solution tendant vers l'optimal, en un temps raisonnable. Ils vont à partir d'un problème donné, chercher une solution selon le processus suivant: 
+Les algorithmes génétiques sont des algorithmes s'inspirant de l'évolution des espèces, leur but est de trouver une solution tendant vers l'optimal, en un temps raisonnable. Ils vont à partir d'un problème donné, chercher une solution selon le processus suivant: 
 - création d'une population initiale ayant des caractéristiques aléatoires
 - évaluation de la population
 - sélection, reproduction, mutation
@@ -71,7 +71,7 @@ Les algorithmes génétiques sont des algorithmes s'inspirant de l'évolution de
 
 I – Création de la population initiale
 
-	Au début de notre programme, la population est créée aléatoirement: c'est a dire que les gènes attribués aux individus sont aléatoires. C'est à partir de celle-ci que nous allons réaliser les tests, de plus, cette population ne répondra pas forcement aux critères de sélection, elle devra cependant être cohérente par rapport à son environnement: par exemple, si l'on code un jeu, ces individus devront respecter les règles du jeu, mais ne sont pas obligés de donner une solution au problème.\\
+	Au début de notre programme, la population est créée aléatoirement: c'est a dire que les gènes attribués aux individus sont aléatoires. Cette population ne répondra pas forcément aux critères de sélection, elle devra cependant être cohérente par rapport à son environnement: par exemple, si l'on code un jeu, ces individus devront respecter les règles du jeu, mais ne sont pas obligés de donner une solution au problème.\\
 
 II – Évaluation de la population
 
@@ -81,19 +81,17 @@ III – Sélection, reproduction, mutation
 
 	Cette étape permet la création d'une nouvelle génération: nous allons tout d'abord sélectionner les différents individus qui seront ensuite utilisés pour la création d'une nouvelle génération, puis nous allons croiser leurs gènes, enfin une mutation peut être introduite chez certains individus de la nouvelle génération.
  
-	Il existe plusieurs modes de sélection d'individus tel que la selection par rang, la selection par tournoi, etc. (Detailler un peu plus cette partie)
-	Le croisement des genes des individus peut se faire aleatoirement, cependant il existe une solution qui est largement plus répendue: les croisements multi-points(a detailler).
-	Durant cette étape, on va egalement appliquer à certains individus (un tres faible pourcentage), une mutation génétique: de façon aléatoire, un gene peut être substitué à un autre.\\
+	Il existe plusieurs modes de sélection d'individus telle que la sélection par rang, la sélection par tournoi, etc. (Detailler un peu plus cette partie)
+	Le croisement des gènes des individus peut se faire aléatoirement, cependant il existe une solution qui est largement plus répendue: les croisements multi-points(a detailler).
+	Durant cette étape, on va également appliquer à certains individus (un très faible pourcentage), une mutation génétique: de façon aléatoire, un gène peut être substitué à un autre.\\
 
 IV – Creation de la nouvelle generation
 
-	Une fois la nouvelle generation créée, on lui applique les mêmes tests d'évaluation et modes de selection que la génération précédentes.
-
-Mettre image du fonctionnement de l'algorithme
+	Une fois la nouvelle génération créée et son cycle de vie terminé, on lui applique les mêmes tests d'évaluation et modes de sélection que la génération précédente.
 
 Le programmeur peut choisir le nombre de génération a créer: généralement, une solution est trouvée en moins de 10 générations, et au bout de 500 générations, les solutions n'évoluent plus, cependant rien ne garantit que nous obtenions une solution optimale.
 
-Nous pouvons donc en conclure que les algorithmes génétiques offrent une grande liberte de parametrage et d'implementation au programmeur, ce qui en fait un outil utilisé dans plusieurs domaines de recherche.
+Nous pouvons donc en conclure que les algorithmes génétiques offrent une grande liberté de paramétrage et d'implémentation au programmeur, ce qui en fait un outil utilisé dans plusieurs domaines de recherche.
 
 
 \begin{figure}[H]
