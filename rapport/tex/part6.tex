@@ -3,11 +3,14 @@
 
 \section{Modèle}
 \subsection{Prototype}
-image ici
+Aucune modification n'a été apporté au prototype papier. Nous avons donc décidé d'implémenter ce prototype (Figure 5.1.).
+
+
 
 \subsection{Tests envisagés}
 \begin{itemize}
-  \item tests généraux liés à la création d'une classe (tests getters/setters) \\
+  \item Tests généraux liés à l'implémentation d'une classe (constructeur, getters/setters, etc...).
+  \item  Tests sur l'intégration du réseau de neurones au sein de la créature.\\
 
 \end{itemize}
 
@@ -22,7 +25,13 @@ image ici
 
 
 \subsection{Tests envisagés}
-texte ici
+
+\begin{itemize}
+  \item Tests pour déterminer le nombres de neurones et de couches qui seront utilisés.
+  \item Tests pour choisir l'odre de grandeur des valeurs à atteindre afin d'exciter un neurone.
+  \item Tests pour implémenter une généricité efficace (tests avec différents nombres et types d'entrées). \\
+
+\end{itemize}
 
 \section{Algorithme génétique}
 
@@ -35,7 +44,12 @@ texte ici
 
 
 \subsection{Tests envisagés}
-texte ici
+\begin{itemize}
+  \item Tests des différentes techniques de sélection (par rang, par tournois, etc...).
+  \item Tests des différentes techniques de croisement et reproduction.
+  \item Tests liés aux pourcentages d'individus sur lesquels appliquer les techniques (par exemple on décide d'effectuer une sélection par rang sur 60\% des individus et par tournoi sur 40\%). \\
+
+\end{itemize}
 
 \section{Interface graphique}
 \subsection{Prototype}
@@ -48,9 +62,9 @@ texte ici
 \subsection{Tests envisagés}
 Plusieurs tests à différents niveaux devront être effectués:
 \begin{itemize}
-  \item gestion des collisions entre les créatures et les éléments de l'environnement.\\
- \item affectation des inputs de la créature, voir si elle détecte bien les différents éléments (champs de vision et Raycasts)\\
- \item rendu des outputs (déplacements) de la créature
- \item différents tests liés à une interface graphique
+  \item Gestion des collisions entre les créatures et les éléments de l'environnement.
+ \item Affectation des inputs de la créature, voir si elle détecte bien les différents éléments (champs de vision et Raycasts).
+ \item Rendu des outputs (déplacements) de la créature.
+ \item Différents tests liés à une interface graphique.
 \end{itemize}
 \clearpage

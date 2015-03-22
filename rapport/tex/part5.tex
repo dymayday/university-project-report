@@ -2,9 +2,14 @@
 
 \section{Modèle}
 \subsection{Besoins}
-Il décrit les données manipulées par l'application. Dans un premier temps, notre modèle est celui des créatures, par la suite, nous utiliserons un modèle basé sur la bourse.
-Priorité: importante.
-Justification: représente une base de notre application, l'algorithme génétique va être appliqué à ce modèle.
+Le modèle décrit les données manipulées par l'application. Dans un premier temps, notre modèle est celui des créatures. Par la suite nous utiliserons un modèle basé sur la bourse.
+
+\begin{itemize}
+ \item Priorité: importante.
+ \item Justification: représente la base de notre application, l'algorithme génétique sera appliqué à ce modèle.\\
+\end{itemize}
+
+
 
 
 \subsection{Prototype papier}
@@ -19,9 +24,15 @@ Justification: représente une base de notre application, l'algorithme génétiq
 
 \section{Réseau de neurones}
 \subsection{Besoins}
-Permet à notre modèle de définir des actions en fonction des entrées(capteurs, etc). Il s'adapte suivant le modèle, c'est a dire au nombre et au type d'entrées.
-Priorité: importante.
-Justification: c'est le cerveau du modèle, il est adapté au fil des générations.
+Le réseau de neurones permet à notre modèle de définir des actions en fonction des entrées (capteurs, status, etc). Il s'adapte suivant le modèle, c'est-à-dire au nombre et au type d'entrées.
+
+\begin{itemize}
+ \item Priorité: très importante.
+ \item Justification: c'est le cerveau du modèle, il est adapté au fil des générations.\\
+\end{itemize}
+
+
+
 \subsection{Prototype papier}
 
 \begin{figure}[H]
@@ -32,9 +43,12 @@ Justification: c'est le cerveau du modèle, il est adapté au fil des générati
 
 \section{Algorithme génétique}
 \subsection{Besoins}
-Cela représente le type d'algorithme utilisé par notre application, il reste le même quel que soit le modèle.
-Priorité: très importante.
-Justification: c'est ce qui nous permettre de faire évoluer le modèle durant plusieurs génération jusqu'à obtenir une solution, tendant vers l'optimale.
+L'algorithme génétique est notre fonction d'évaluation et de création de génération. Il est générique et s'adapte donc aussi au modèle.
+
+\begin{itemize}
+ \item Priorité: très importante.
+ \item Justification: l'algorithme génétique est ce qui nous permet de faire évoluer (avec le réseau de neurones) le modèle durant plusieurs générations jusqu'à obtenir une solution, tendant vers l'optimale.\\
+\end{itemize}
 \subsection{Prototype papier}
 
 \begin{figure}[H]
@@ -46,10 +60,13 @@ Justification: c'est ce qui nous permettre de faire évoluer le modèle durant p
 
 \section{Interface graphique}
 \subsection{Besoins}
-Description: nous avons besoin d'une méthode de visualisation clair et pertinente, de nos résultats.
-Priorité: importante.
-Justification: Afin d’avoir un résultat visuel nous avons besoin d’une interface qui va nous 
-montrer en temps réel les agissement des créatures ainsi que leur évolution.
+Description: nous avons besoin d'une méthode de visualisation claire et pertinente de nos résultats.
+\begin{itemize}
+ \item Priorité: importante.
+ \item Justification: Afin d’avoir un résultat visuel nous avons besoin d’une interface qui va nous 
+montrer en temps réel les agissement des créatures ainsi que leur évolution.\\
+\end{itemize}
+
 
 \subsection{Prototype papier}
 \begin{figure}[H]

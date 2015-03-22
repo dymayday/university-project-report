@@ -3,34 +3,35 @@
 \section{Modèles}
 Le principal modèle développé est celui des créatures.
 Ce modèle permet de simuler l'évolution d'une espèce dans un milieu donné.
-Il utilisera le réseau de neurones comme ``attribut de classe''\\
+Il utilisera le réseau de neurones comme ``attribut de classe''.\\
 Les individus (les créatures) doivent pour survivre, boire de l'eau, éviter le feu et ramener des diamants à la maison.
-\\Pour bouger, les créatures ont en entrée la possibilité de détecter si :\\
+\\Pour bouger, la créature a la possibilité de détecter si :\\
 
 \begin{itemize}
- \item un diamant est devant soi
- \item de l'eau est devant soi
- \item du feu est devant soi
- \item la maison est devant soi
+ \item un diamant est devant elle
+ \item de l'eau est devant elle
+ \item du feu est devant elle
+ \item la maison est devant elle
  \item elle transporte actuellement un diamant\\
 \end{itemize}
 
-La créature à possibilité de :
+En sortie, la créature à le choix de :
 \begin{itemize}
  \item tourner à gauche
  \item tourner à droite
- \item avancer\\
+ \item avancer
+ \item ne rien faire\\
  
 \end{itemize}
  
-Le choix des actions est déterminé par les poids associés à chaque signal au sein du réseau de neurones d'une créature.\\
+Le choix des actions est déterminé par les poids attribués à chaque signal au sein du réseau de neurones associé à la créature.\\
 
 Dans un second temps, un modèle basé sur la bourse (ex: CAC40) est envisagé.
 Il utilisera aussi le réseau de neurones déjà implémenté.
-
+\clearpage
 \section{Réseau de neurones}
 
-Dans le domaine de la science cognitive et du "machine learning", les réseaux de neurones artificiels sont une famille d'algorithmes d'apprentissage statistique inspiré par les réseaux de neurones biologique (système nerveux central, cerveau) et sont utilisés pour estimer ou approximer une fonction pouvant prendre un nombre important d'entrées généralement inconnues.\\
+Dans le domaine de la science cognitive et du "machine learning", les réseaux de neurones artificiels sont une famille d'algorithmes d'apprentissage statistique inspirés par les réseaux de neurones biologiques (système nerveux central, cerveau) et sont utilisés pour estimer ou approximer une fonction pouvant prendre un nombre important d'entrées généralement inconnues.\\
 
 L'élément clé de ce paradigme réside dans la structure particulière du système de traitement de l'information. Il est habituellement composé d'un large nombre d'éléments de traitement interconnectés, neurones, travaillant à l’unisson afin de résoudre un problème spécifique. Un réseau de neurones apprend par l'exemple et est configuré pour une application spécifique telle que le "pattern recognition" ou la classification de données au travers d'un processus d’apprentissage. L'apprentissage dans un système nerveux biologique implique l'ajustement des connexions synaptiques existantes entre les neurones, ce qui est vrai également dans un réseau artificiel.
 
@@ -57,51 +58,63 @@ au moyen de connexions qui les relient.
     \includegraphics[width=0.8\textwidth]{./pictures/reseau_de_neurones.png}
     \caption{Réseau de neurones}
 \end{figure}
-
+\clearpage
 
 
 \section{Algorithme génétique}
-Les algorithmes génétiques sont des algorithmes s'inspirant de l'évolution des espèces, leur but est de trouver une solution tendant vers l'optimal, en un temps raisonnable. Ils vont à partir d'un problème donné, chercher une solution selon le processus suivant: 
-- création d'une population initiale ayant des caractéristiques aléatoires
-- évaluation de la population
-- sélection, reproduction, mutation
-- insertion des nouveaux individus dans la population\\
+Les algorithmes génétiques s'inspirent de l'évolution des espèces. Leur but est de trouver une solution tendant vers l'optimal, en un temps raisonnable. Ils vont à partir d'un problème donné, chercher une solution selon le processus suivant: 
+
+\begin{itemize}
+\item création d'une population initiale ayant des caractéristiques aléatoires
+\item évaluation de la population
+\item sélection, reproduction, mutation
+\item insertion des nouveaux individus dans la population
+\item évaluation de la nouvelle génération, sélection, reproduction, etc...\\
+\end{itemize}
 
 %\subsection{Création de la population initiale}
 
-I – Création de la population initiale
+\subsection{Création de la population initiale}
 
-	Au début de notre programme, la population est créée aléatoirement: c'est a dire que les gènes attribués aux individus sont aléatoires. Cette population ne répondra pas forcément aux critères de sélection, elle devra cependant être cohérente par rapport à son environnement: par exemple, si l'on code un jeu, ces individus devront respecter les règles du jeu, mais ne sont pas obligés de donner une solution au problème.\\
+	Au début de notre programme, la population est créée aléatoirement: c'est-à-dire que les gènes attribués aux individus sont aléatoires. Cette population ne répondra pas forcément aux critères de sélection, elle devra cependant être cohérente par rapport à son environnement. Par exemple, si l'on code un jeu, ces individus devront respecter les règles du jeu, mais ne donneront pas forcément une solution au problème.\\
 
-II – Évaluation de la population
+\subsection{Evaluation de la population}
 
-	Notre population initiale étant créée, cette étape consiste maintenant à évaluer les individus dans leur environnement selon plusieurs critères définis et a leur attribuer un score.\\
+	Notre population initiale étant créée, cette étape consiste maintenant à évaluer les individus dans leur environnement selon plusieurs critères définis et à leur attribuer un score.\\
 
-III – Sélection, reproduction, mutation
+\subsection{Sélection, reproduction, mutation}
 
-	Cette étape permet la création d'une nouvelle génération: nous allons tout d'abord sélectionner les différents individus qui seront ensuite utilisés pour la création d'une nouvelle génération, puis nous allons croiser leurs gènes, enfin une mutation peut être introduite chez certains individus de la nouvelle génération.
+	Cette étape permet la création d'une nouvelle génération: nous allons tout d'abord sélectionner les différents individus qui seront ensuite utilisés pour la création d'une nouvelle génération, nous allons ensuite croiser leurs gènes. Enfin une mutation peut être introduite chez certains individus de la nouvelle génération.
  
-	Il existe plusieurs modes de sélection d'individus telle que la sélection par rang, la sélection par tournoi, etc. (Detailler un peu plus cette partie)
-	Le croisement des gènes des individus peut se faire aléatoirement, cependant il existe une solution qui est largement plus répendue: les croisements multi-points(a detailler).
-	Durant cette étape, on va également appliquer à certains individus (un très faible pourcentage), une mutation génétique: de façon aléatoire, un gène peut être substitué à un autre.\\
+	Il existe plusieurs modes de sélection d'individus :
+	\begin{itemize}
+	\item Sélection par roulette : probabilité de sélection proportionnelle à leurs performances, il y a cependant un risque de surreprésentation.
+	\item Sélection par rang : chromosomes triés par leurs performances, la probabilité de sélection dépend du rang du chromosome, et non plus des performances, ce qui évite d'avoir une surreprésentation.
+	\item Sélection par tournoi : on crée m paires de chromosomes à partir de m chromosomes, on fixe alors une probabilité de sélection plus importante (entre 70\% et 80\%) pour le plus fort. 
+	\item Sélection steady-state : une grande partie de la population est conservée, les plus mauvais sont remplacés par des nouveaux, produits à partir des meilleurs individus.
+	\item Elitisme : reproduction à l'identique des meilleurs chromosomes afin d'éviter de les perdre lors de la reproduction.\\
+	\end{itemize}
+	
+	
+	Le croisement des gènes des individus peut se faire aléatoirement, cependant il existe une solution qui est largement plus répendue: les croisements multi-points. Le croisement multi-point consiste à découper en N morceaux les gènes de chaque individu choisi, puis à coupler ces gènes entre eux pour en créer un nouveau.\\
+	\begin{figure}[H]
 
-IV – Creation de la nouvelle generation
+	\includegraphics[width=0.5\textwidth]{./pictures/reproduction.png}
+	
+	\caption{Croisement de deux gènes}
+	\end{figure}
+	Enfin, la mutation génétique consiste à appliquer à certains individus (un très faible pourcentage), de façon aléatoire,une substitution d'un gène par un autre.\\
+	\begin{figure}[H]
+
+	\includegraphics[width=0.5\textwidth]{./pictures/mutation.png}
+	
+	\caption{Mutation}
+	\end{figure}
+	
 
 	Une fois la nouvelle génération créée et son cycle de vie terminé, on lui applique les mêmes tests d'évaluation et modes de sélection que la génération précédente.
 
-Le programmeur peut choisir le nombre de génération a créer: généralement, une solution est trouvée en moins de 10 générations, et au bout de 500 générations, les solutions n'évoluent plus, cependant rien ne garantit que nous obtenions une solution optimale.
+Le programmeur peut choisir le nombre de génération à créer: généralement, une solution est trouvée en moins de 10 générations, et au bout de 500 générations, les solutions n'évoluent plus, cependant rien ne garantit que nous obtenions une solution optimale.
 
 Nous pouvons donc en conclure que les algorithmes génétiques offrent une grande liberté de paramétrage et d'implémentation au programmeur, ce qui en fait un outil utilisé dans plusieurs domaines de recherche.
 
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.2\textwidth]{./pictures/adn.jpg}
-    \includegraphics[width=0.8\textwidth]{./pictures/reproduction.png}
-    \includegraphics[width=0.8\textwidth]{./pictures/mutation.png}
-    
-    \caption{Exemple : Algorithme génétique}
-    %\label{fig:awesome_image}
-\end{figure}
-
-\clearpage
