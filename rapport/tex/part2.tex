@@ -29,50 +29,78 @@ Le choix des actions est déterminé par les poids attribués à chaque signal a
 Dans un second temps, un modèle basé sur la bourse (ex: CAC40) est envisagé.
 Il utilisera aussi le réseau de neurones déjà implémenté.
 \clearpage
+
+
+
+
 \section{Réseau de neurones}
 
-Dans le domaine de la science cognitive et du "machine learning", les réseaux de neurones artificiels sont une famille d'algorithmes d'apprentissage statistique inspirés par les réseaux de neurones biologiques (système nerveux central, cerveau) et sont utilisés pour estimer ou approximer une fonction pouvant prendre un nombre important d'entrées généralement inconnues.\\
+Dans le domaine de la science cognitive et de l'apprentissage automatique, les réseaux de neurones artificiels sont une famille d'algorithmes d'apprentissage statistique inspirés par les réseaux de neurones biologiques (système nerveux central, cerveau) et sont utilisés pour estimer ou approximer une fonction pouvant prendre un nombre important d'entrées généralement inconnues.\\
 
-L'élément clé de ce paradigme réside dans la structure particulière du système de traitement de l'information. Il est habituellement composé d'un large nombre d'éléments de traitement interconnectés, neurones, travaillant à l’unisson afin de résoudre un problème spécifique. Un réseau de neurones apprend par l'exemple et est configuré pour une application spécifique telle que le "pattern recognition" ou la classification de données au travers d'un processus d’apprentissage. L'apprentissage dans un système nerveux biologique implique l'ajustement des connexions synaptiques existantes entre les neurones, ce qui est vrai également dans un réseau artificiel.
+L'élément clé de ce paradigme réside dans la structure particulière du système de traitement de l'information. Il est habituellement composé d'un large nombre d'éléments de traitement interconnectés, neurones, travaillant à l’unisson afin de résoudre un problème spécifique. Un réseau de neurones apprend par l'exemple et est configuré pour une application spécifique telle que la reconnaissance de forme ou la classification de données au travers d'un processus dit d’apprentissage. Ce processus, dans un système nerveux biologique, implique l'ajustement des connexions synaptiques existantes entre les neurones, ce qui est vrai également dans un réseau artificiel.
 
    
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.8\textwidth]{./pictures/neurone.png}
-    \caption{Shémas d'un neurone artificiel}
-    %\label{fig:awesome_image}
-\end{figure}
+
 
 \subsection{Le Neurone Artificiel}
-Un neurone formel est une unité de traitement qui reçoit des données en entrée, sous la forme d’un vecteur, et produit une sortie réelle. Cette sortie est déterminée en fonction des entrées et des poids des connexions.\\
-Une connexion entre deux unités i et j indique la possibilité d'une relation physique entre ces deux unités.
-La valeur numérique du poids associé à une connexion entre deux unités reflète la force de la relation entre ces deux unités. Si cette valeur est positive, la connexion est dite excitatrice, sinon elle est dite inhibitrice. La convention usuelle est de noter le poids de la connexion reliant le neurone
-i au neurone j : $W_{ij}$
-
-\subsection{Réseau de neurones}
-Un réseau de neurones est un graphe valué orienté, constitué d’un ensemble d’unités (ou automates), réalisant des calculs élémentaires, structurées en couches successives capables d’échanger des informations
-au moyen de connexions qui les relient.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.8\textwidth]{./pictures/reseau_de_neurones.png}
-    \caption{Réseau de neurones}
+    \includegraphics[width=\textwidth]{./pictures/800px-ArtificialNeuronModel_francais.png}
+    \caption{Structure d'un neurone artificiel. Le neurone calcule la somme de ses entrées puis cette valeur passe à travers la fonction d'activation pour produire sa sortie.}
 \end{figure}
-\clearpage
+Un neurone artificiel est une unité de traitement qui reçoit des données en entrée, sous la forme d’un vecteur, et produit une sortie réelle. Cette sortie est déterminée en fonction des valeurs d'entrées et des poids des connexions.\\
+
+
+La valeur numérique du poids associé à une connexion entre deux unités reflète la force de la relation entre ces deux unités. Si cette valeur est positive, la connexion est dite excitatrice, sinon elle est dite inhibitrice.
+
+
+\subsection{Réseau de neurones}
+
+Un réseau de neurones est en général composé d'une succession de couches dont chacune prend ses entrées sur les sorties de la précédente. Chaque couche $(i)$ est composée de $N_{i}$ neurones, prenant leurs entrées sur les $N_{i-1}$ neurones de la couche précédente. À chaque synapse est associée un poids synaptique, de sorte que les $N_{i-1}$ sont multipliés par ce poids, puis additionnés par les neurones de niveau $i$, ce qui est équivalent à multiplier le vecteur d'entrée par une matrice de transformation. Mettre l'une derrière l'autre les différentes couches d'un réseau de neurones reviendrait à mettre en cascade plusieurs matrices de transformation et pourrait se ramener à une seule matrice, produit des autres, s'il n'y avait à chaque couche, la fonction de sortie qui introduit une non linéarité à chaque étape.\\
+Ceci montre l'importance du choix judicieux d'une bonne fonction de sortie : un réseau de neurones dont les sorties seraient linéaires n'aurait aucun intérêt.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{./pictures/800px-Neural_network.png}
+    \caption{Vue simplifiée d'un réseau artificiel de neurones.}
+\end{figure}
+
+\subsection{Fonction de combinaison}
+
+Considérons un neurone quelconque.
+
+Il reçoit des neurones en amont un certain nombre de valeurs via ses connexions synaptiques, et il produit une certaine valeur en utilisant une \textbf{fonction de combinaison}. Cette fonction peut donc être formalisée comme étant une fonction vecteur-à-scalaire, notamment :
+
+\begin{itemize}
+    \item[$\bullet$] Les réseaux de type \textbf{MLP} (Multi-Layer Perceptron) calculent une combinaison linéaire des entrées, c’est-à-dire que la fonction de combinaison renvoie le produit scalaire entre le vecteur des entrées et le vecteur des poids synaptiques.
+    \item[$\bullet$] Les réseaux de type \textbf{RBF} (Radial Basis Function) calculent la distance entre les entrées, c’est-à-dire que la fonction de combinaison renvoie la norme euclidienne du vecteur issu de la différence vectorielle entre les vecteurs d’entrées.
+\end{itemize}
+
+\subsection{Fonction d’activation}
+La \textbf{fonction d’activation} (ou fonction de seuillage) sert à introduire une non-linéarité dans le fonctionnement du neurone.
+
+
+Les fonctions de seuillage présentent généralement trois intervalles :
+\begin{enumerate}
+    \item en dessous du seuil, le neurone est non-actif (souvent dans ce cas, sa sortie vaut 0 ou -1) ;
+    \item aux alentours du seuil, une phase de transition ;
+    \item au-dessus du seuil, le neurone est actif (souvent dans ce cas, sa sortie vaut 1).
+\end{enumerate}
+
 
 
 \section{Algorithme génétique}
 Les algorithmes génétiques s'inspirent de l'évolution des espèces. Leur but est de trouver une solution tendant vers l'optimal, en un temps raisonnable. Ils vont à partir d'un problème donné, chercher une solution selon le processus suivant: 
 
 \begin{itemize}
-\item création d'une population initiale ayant des caractéristiques aléatoires
-\item évaluation de la population
-\item sélection, reproduction, mutation
-\item insertion des nouveaux individus dans la population
-\item évaluation de la nouvelle génération, sélection, reproduction, etc...\\
+    \item création d'une population initiale ayant des caractéristiques aléatoires
+    \item évaluation de la population
+    \item sélection, reproduction, mutation
+    \item insertion des nouveaux individus dans la population
+    \item évaluation de la nouvelle génération, sélection, reproduction, etc...\\
 \end{itemize}
 
-%\subsection{Création de la population initiale}
 
 \subsection{Création de la population initiale}
 
